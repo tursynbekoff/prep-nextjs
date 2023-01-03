@@ -7,6 +7,8 @@ node_modules
 
 # testing
 /coverage
+**/__snapshots__
+**/__snapshots__/*.snap
 
 # next.js
 /.next/
