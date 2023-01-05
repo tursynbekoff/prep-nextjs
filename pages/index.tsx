@@ -9,7 +9,8 @@ interface IProps {
   data: IPizza
 }
 
-const Home = ({ data }: IProps) => {
+const Home = ({ data }: IProps | any) => {
+  console.log(data)
 
   return (
     <>
@@ -25,7 +26,7 @@ const Home = ({ data }: IProps) => {
           Some text for test
         </h1>
         <p>
-          {data.name}
+          {data?.name}
         </p>
       </main>
     </>

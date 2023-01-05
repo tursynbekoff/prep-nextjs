@@ -1,3 +1,6 @@
 export interface IPizza {
-  name: string
+  id: string,
+  name: string,
+  avatar: string,
+  description: string
 }
