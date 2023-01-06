@@ -1,11 +1,17 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import axios from 'axios'
 import { Inter } from '@next/font/google'
+import { IPizza } from 'types'
 import Navbar from 'components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+interface IProps {
+  data: IPizza
+}
+
+const Home = ({ data }: IProps | any) => {
+
   return (
     <>
       <Head>
@@ -19,7 +25,23 @@ export default function Home() {
         <h1>
           Some text for test
         </h1>
+        <p>
+          {data?.name}
+        </p>
       </main>
     </>
   )
 }
+
+export const getServerSideProps = async () => {
+
+  const response = await axios.get(`http://localhost:6769/api/pizzas/1`)
+
+  return {
+    props: {
+      data: response.data
+    }
+  }
+}
+
+export default Home
