@@ -26,7 +26,6 @@ const Home = ({ data }: IProps | any) => {
           Some text for test
         </h1>
         <p>
-          {data?.name}
         </p>
       </main>
     </>
@@ -35,11 +34,11 @@ const Home = ({ data }: IProps | any) => {
 
 export const getServerSideProps = async () => {
 
-  const response = await axios.get(`http://localhost:6769/api/pizzas/1`)
-
+  const response = await axios.get(`http://localhost:6767/api/pizzas`)
   return {
     props: {
-      data: response.data
+      data: response.data,
+      // fullList
     }
   }
 }

@@ -1,6 +1,11 @@
 {
-  "id": "n:[animalid]",
-  "name": "[#faker:name:firstName]",
-  "avatar": "[#faker:image:animals]",
-  "description": "[#faker:lorem:paragraph]"
+  "id": "n:[]",
+  "name": "[]",
+  "imageUrl": "[]",
+  "size": "[]",
+  "raiting": "[]",
+  "types": "[]",
+  "title": "[]",
+  "description": "[]",
+  "price": "[#faker:lorem:paragraph]"
 }
