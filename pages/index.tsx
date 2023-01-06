@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import axios from 'axios'
 import { Inter } from '@next/font/google'
 import { IPizza } from 'types'
 import Navbar from 'components/Navbar'
@@ -10,7 +11,6 @@ interface IProps {
 }
 
 const Home = ({ data }: IProps | any) => {
-  console.log(data)
 
   return (
     <>
@@ -35,12 +35,11 @@ const Home = ({ data }: IProps | any) => {
 
 export const getServerSideProps = async () => {
 
-  const res = await fetch(`http://localhost:6769/api/pizzas/1`)
-  const data = await res.json()
+  const response = await axios.get(`http://localhost:6769/api/pizzas/1`)
 
   return {
     props: {
-      data
+      data: response.data
     }
   }
 }
