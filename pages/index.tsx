@@ -38,7 +38,6 @@ export const getServerSideProps = async () => {
   return {
     props: {
       data: response.data,
-      // fullList
     }
   }
 }
