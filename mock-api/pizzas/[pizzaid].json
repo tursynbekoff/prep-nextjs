@@ -1,10 +1,10 @@
 {
-  "id": "n:[]",
-  "imageUrl": "[]",
-  "size": "[]",
-  "raiting": "[]",
-  "types": "[]",
-  "title": "[]",
-  "description": "[]",
-  "price": "[#faker:lorem:paragraph]"
+  "id": "n:[pizzaid]",
+  "imageUrl": "n:[pizzaid]",
+  "size": "30",
+  "raiting": "4",
+  "types": "[#faker:datatype:boolean]",
+  "title": "[#faker:name:firstName]",
+  "description": "[#faker:lorem:paragraphs]",
+  "price": "9.99"
 }
