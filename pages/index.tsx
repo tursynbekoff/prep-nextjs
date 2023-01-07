@@ -3,15 +3,14 @@ import axios from 'axios'
 import { Inter } from '@next/font/google'
 import { IPizza } from 'types'
 import Navbar from 'components/Navbar'
-
-const inter = Inter({ subsets: ['latin'] })
+import Card from 'components/Card/Card'
+import styles from './index.module.css'
 
 interface IProps {
-  data: IPizza
+  data: IPizza[]
 }
 
 const Home = ({ data }: IProps | any) => {
-
   return (
     <>
       <Head>
@@ -20,13 +19,16 @@ const Home = ({ data }: IProps | any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className={styles.main}>
         <Navbar />
         <h1>
           Some text for test
         </h1>
-        <p>
-        </p>
+        <div className={styles.cards}>
+          {
+            data.map((el: IPizza) => <Card key={el.id} card={el}/>)
+          }
+        </div>
       </main>
     </>
   )

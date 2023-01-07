@@ -19,6 +19,9 @@ rpfy.run()
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    domains: [ 'dodopizza.azureedge.net', 'dodopizza-a.akamaihd.net'],
+  }
 }
 
 module.exports = nextConfig
