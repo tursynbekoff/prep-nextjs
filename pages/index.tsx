@@ -4,7 +4,6 @@ import { Inter } from '@next/font/google'
 import { IPizza } from 'types'
 import Navbar from 'components/Navbar'
 import Card from 'components/Card/Card'
-import styles from './index.module.css'
 
 interface IProps {
   data: IPizza[]
@@ -19,12 +18,12 @@ const Home = ({ data }: IProps | any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className="flex flex-col justify-center items-center">
         <Navbar />
         <h1>
           Some text for test
         </h1>
-        <div className={styles.cards}>
+        <div className="w-[300px]">
           {
             data.map((el: IPizza) => <Card key={el.id} card={el}/>)
           }
