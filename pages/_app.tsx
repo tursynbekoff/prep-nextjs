@@ -1,6 +1,23 @@
+import { useState, useEffect } from 'react'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }: AppProps) => {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setIsLoading(false)
+  }, [])
+
+  return (
+    <>
+      {isLoading 
+        ? <>loading...</> 
+        : <Component {...pageProps} />
+      }
+    </>
+  );
 }
+
+export default MyApp
