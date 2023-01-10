@@ -2,7 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import { IPizza } from 'types'
-import styles from './card.module.css'
+// import styles from './card.module.css'
 
 interface IProp {
   card: IPizza;
@@ -13,8 +13,8 @@ const Card: NextPage<IProp> = ({ card }) => {
 
   console.log(imageUrl)
   return (
-    <div className={styles.card}>
-      <div className={styles.card__wrapper}>
+    <div className="flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white mb-4">
+      <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
           width={300}
@@ -23,15 +23,16 @@ const Card: NextPage<IProp> = ({ card }) => {
           alt="pizza product"
         />
       </div>
-      <h2>{title}</h2>
-      <p>
+      <h2 className="font-bold text-xl">{title}</h2>
+      <p className="max-h-[4.5rem] overflow-hidden">
         {description}
       </p>
-      <div className={styles.card__purchase}>
-        <div className={styles.card__price}>
+      <div className="flex justify-between mt-3 items-center">
+        <div className="font-semibold text-semibold">
           {`from ${price} $`}
         </div>
         <button
+          className="px-4 py-1 text-md font-semibold flex items-center bg-[#ff6c17] rounded-full text-white hover:bg-[#ff6c17aa]"
           type='button'
           onClick={()=> {}}
         >
