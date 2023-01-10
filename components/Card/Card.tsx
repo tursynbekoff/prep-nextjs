@@ -2,7 +2,6 @@ import React from 'react'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import { IPizza } from 'types'
-// import styles from './card.module.css'
 
 interface IProp {
   card: IPizza;
