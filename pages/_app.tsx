@@ -26,7 +26,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <h1>
           Some text for test
         </h1>
-        <div className="w-[300px]">
+        <div className="flex w-[300px] md:w-[620px] gap-4 flex-wrap">
           {
             isLoading 
             ? <Skelet/>

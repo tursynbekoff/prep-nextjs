@@ -7,7 +7,7 @@ const Skelet = () => {
     <>
       {
         mockList.map((el : any) => (
-          <div key={`${el}-skelet`} className="flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white mb-4">
+          <div key={`${el}-skelet`} className="w-[300px] flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white">
             <div className="flex justify-center">
               <span className="w-[256px] h-[256px] rounded-full bg-gray-300"></span>
             </div>

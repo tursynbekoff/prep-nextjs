@@ -12,7 +12,7 @@ const Card: NextPage<IProp> = ({ card }) => {
 
   console.log(imageUrl)
   return (
-    <div className="flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white mb-4">
+    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white">
       <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
