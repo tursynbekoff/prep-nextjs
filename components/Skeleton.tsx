@@ -1,12 +1,12 @@
 import React from 'react'
 
-const Skelet = () => {
+const Skeleton = () => {
 
   return (
     <>
       {
         [1, 2, 3].map((el : any) => (
-          <div key={`${el}-skelet`} className="w-[300px] animate-pulse flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white">
+          <div key={`${el}-skeleton`} className="w-[300px] animate-pulse flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white">
             <div className="flex justify-center">
               <span className="w-[256px] h-[256px] rounded-full bg-gray-300"></span>
             </div>
@@ -36,4 +36,4 @@ const Skelet = () => {
   )
 }
 
-export default Skelet
+export default Skeleton
