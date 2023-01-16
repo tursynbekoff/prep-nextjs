@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Head from 'next/head'
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Skelet from 'components/Skelet'
+import Skeleton from 'components/Skeleton'
 import Navbar from 'components/Navbar'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -29,7 +29,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <div className="flex w-[300px] md:w-[620px] gap-4 flex-wrap">
           {
             isLoading 
-            ? <Skelet/>
+            ? <Skeleton />
             : <Component {...pageProps} />
           }
         </div>
