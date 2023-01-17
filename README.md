@@ -1,11 +1,5 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Check it out here
-
-here is the [link](https://tipa-tak-nextjs-prototype.vercel.app/) to the deployed website on vercel
-
-
-
 ## Getting Started
 
 First, run the development server:
