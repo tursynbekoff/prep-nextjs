@@ -19,7 +19,6 @@ const Home = () => {
   const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
   const { data, error } = useSWR(address, fetcher);
 
-
   useEffect(() => {
     dispatch(setPizzaState({
       data
@@ -27,9 +26,8 @@ const Home = () => {
   
   }, [data, dispatch])
   
-
   if (error) <p>Loading failed...</p>;
-  if (!data)  <h1>Loading...</h1>
+  if (!data) <h1>Loading...</h1>
 
 
   console.log('authState', authState.data);
