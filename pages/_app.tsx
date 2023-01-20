@@ -2,13 +2,15 @@ import { useState, useEffect } from 'react'
 import { Provider } from "react-redux";
 import Head from 'next/head'
 import '../styles/globals.css'
-import store from "store/index";
+import { wrapper } from "store/store";
 import type { AppProps } from 'next/app'
 import Skeleton from 'components/Skeleton'
 import Navbar from 'components/Navbar'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, ...rest }: AppProps) => {
 
+  const { store, props } = wrapper.useWrappedStore(rest)
+  const { pageProps } = props
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {

@@ -1,3 +1,6 @@
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { setPizzaState, selectPizzaState } from 'store/slices/pizzaSlice';
 import axios from 'axios'
 import useSWR from 'swr'
 
@@ -9,12 +12,27 @@ interface IProps {
 }
 
 const Home = () => {
-  const address = `http://localhost:6767/api/pizzas`
+  const authState = useSelector(selectPizzaState);
+  const dispatch = useDispatch();
+
+  const address = `http://localhost:6769/api/pizzas`
   const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
   const { data, error } = useSWR(address, fetcher);
 
+
+  useEffect(() => {
+    dispatch(setPizzaState({
+      data
+    }))
+  
+  }, [data, dispatch])
+  
+
   if (error) <p>Loading failed...</p>;
-  if (!data) <h1>Loading...</h1>;
+  if (!data)  <h1>Loading...</h1>
+
+
+  console.log('authState', authState.data);
 
   return (
     <>
