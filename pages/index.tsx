@@ -20,8 +20,6 @@ const Home = () => {
     }
   });
 
-  const state = useSelector((s: any) => console.log(s))
-
   if (error) <p>Loading failed...</p>;
   if (!data) <h1>Loading...</h1>;
 
