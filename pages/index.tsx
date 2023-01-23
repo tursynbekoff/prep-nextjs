@@ -12,7 +12,7 @@ interface IProps {
 }
 
 const Home = () => {
-  const authState = useSelector(selectPizzaState);
+  const piy = useSelector(selectPizzaState);
   const dispatch = useDispatch();
 
   const address = `http://localhost:6769/api/pizzas`
@@ -30,7 +30,7 @@ const Home = () => {
   if (!data) <h1>Loading...</h1>
 
 
-  console.log('authState', authState.data);
+  // console.log('authState', authState.data);
 
   return (
     <>
