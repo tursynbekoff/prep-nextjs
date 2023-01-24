@@ -1,19 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IPizza } from 'types'
 
-export interface Pizza {
-  list: [IPizza] | any
-}
 
-const initialState: Pizza = {
-  list: []
+const initialState = {
+  list: [] as IPizza[]
 }
 
 const slice = createSlice({
   name: 'PIZZA',
   initialState,
   reducers: {
-    onSave: (state, action: PayloadAction<unknown[]>) => {
+    onSave: (state, action: PayloadAction<IPizza[] | never[]>) => {
         state.list = action.payload 
     }
   }
