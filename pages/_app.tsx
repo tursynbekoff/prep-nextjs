@@ -1,19 +1,12 @@
-import { useState, useEffect } from 'react'
+import React from 'react'
 import { Provider } from "react-redux";
 import Head from 'next/head'
 import '../styles/globals.css'
 import store from "store/index";
 import type { AppProps } from 'next/app'
-import Skeleton from 'components/Skeleton'
 import Navbar from 'components/Navbar'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    setTimeout(() => setIsLoading(false), 1500)
-  }, [])
 
   return (
     <Provider store={store}>
@@ -28,13 +21,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <h1>
           Some text for test
         </h1>
-        <div className="flex w-[300px] md:w-[620px] gap-4 flex-wrap">
-          {
-            isLoading 
-            ? <Skeleton />
-            : <Component {...pageProps} />
-          }
-        </div>
+        <Component {...pageProps} />
       </main>
     </Provider>
 
