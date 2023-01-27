@@ -22,7 +22,7 @@ const Home = () => {
   if (error) <p>Loading failed...</p>;
 
   return (
-    <div className="flex w-[300px] md:w-[620px] gap-4 flex-wrap">
+    <div className="flex w-[300px] md:w-[620px] lg:w-[932px] xl:w-[1248px] gap-4 flex-wrap">
       {
         isLoading 
         ? <Skeleton />
