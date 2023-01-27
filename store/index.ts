@@ -1,27 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
 
-export const iconslice= createSlice({
-name:"icon",
-initialState:{
-     icon:'moon'
-},
-reducers:{
-     iconMoon:state=>{
-        state.icon= 'moon'
-     },
-     iconSun:state=>{
-        state.icon= 'sun'
-    },
-   }
-})
+import pizzaSlice from './pizza-slice'
 
-const store= configureStore({
+const store = configureStore({
    reducer: {
-      icon: iconslice.reducer
+      pizza: pizzaSlice
    }
 })
 
 export default store
 
-export const iconAction = iconslice.actions
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch

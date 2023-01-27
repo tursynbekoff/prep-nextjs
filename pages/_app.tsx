@@ -8,6 +8,7 @@ import Navbar from 'components/Navbar'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 
+
   return (
     <Provider store={store}>
       <Head>
@@ -23,7 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         </h1>
         <Component {...pageProps} />
       </main>
-    </Provider>
+    </>
 
   );
 }

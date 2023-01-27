@@ -10,7 +10,6 @@ interface IProp {
 const Card: NextPage<IProp> = ({ card }) => {
   const {imageUrl, size, raiting, types, title, description, price} = card
 
-  console.log(imageUrl)
   return (
     <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white">
       <div className="flex justify-center">
