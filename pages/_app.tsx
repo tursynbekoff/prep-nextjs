@@ -24,7 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         </h1>
         <Component {...pageProps} />
       </main>
-    </>
+    </Provider>
 
   );
 }
