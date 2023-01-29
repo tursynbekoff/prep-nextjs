@@ -1,10 +1,10 @@
 export interface IPizza {
-  id: string,
+  id: number,
   imageUrl: string,
-  size: string,
-  raiting: string,
-  types: string,
-  title: string,
+  size: number[],
+  raiting: number,
+  types: string[],
+  name: string,
   description: string,
-  price: string 
+  price: number 
 }
