@@ -7,17 +7,17 @@ interface Pizza {
   pizza: {
     list: IPizza[]
   }
-}
+} 
 const Pizza = () => {
-  const { pizza: { list } } : Pizza | any = useSelector((s) => s)
+  const list = useSelector((state : Pizza) => state.pizza.list)
 
   return (
     <>
       {
         ((Array.isArray(list)) &&
-        list.map((el: IPizza) => {
-          return <Card key={el.id} card={el}/>
-        })
+          list.map((el: IPizza) => {
+            return <Card key={el.id} card={el}/>
+          })
         )
       }
     </>
