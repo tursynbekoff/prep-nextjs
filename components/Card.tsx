@@ -8,21 +8,21 @@ interface IProp {
 }
 
 const Card: NextPage<IProp> = ({ card }) => {
-  const {imageUrl, size, raiting, types, title, description, price} = card
+  const {imageUrl, size, raiting, types, name, description, price} = card
 
   return (
     <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white">
       <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
-          width={300}
-          height={300}
+          width={256}
+          height={256}
           className=""
           alt="pizza product"
         />
       </div>
-      <h2 className="font-bold text-xl">{title}</h2>
-      <p className="max-h-[4.5rem] overflow-hidden">
+      <h2 className="font-bold text-xl">{name}</h2>
+      <p className="grow max-h-[4.5rem] overflow-hidden">
         {description}
       </p>
       <div className="flex justify-between mt-3 items-center">

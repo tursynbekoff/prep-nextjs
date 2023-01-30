@@ -4,7 +4,8 @@ import useSWR from 'swr'
 import { IPizza } from 'types'
 import Skeleton from 'components/Skeleton'
 import Card from 'components/Card'
-import { useDispatch, useSelector } from 'react-redux'
+import Pizzas from 'components/Pizzas'
+import { useDispatch } from 'react-redux'
 import { onSave } from 'store/pizza-slice'
 
 const Home = () => {
@@ -12,7 +13,7 @@ const Home = () => {
   const address = `http://localhost:6767/api/pizzas`
   const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
   
-  const { data, error, isLoading  } = useSWR(address, fetcher, {
+  const { error, isLoading  } = useSWR(address, fetcher, {
     onSuccess: (data) => {
       dispatch(onSave(data))
     }
@@ -26,9 +27,7 @@ const Home = () => {
       {
         isLoading 
         ? <Skeleton />
-        : (data &&
-          data.map((el: IPizza) => <Card key={el.id} card={el}/>)
-        )
+        : <Pizzas />
       }
     </div>
   )
