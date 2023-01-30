@@ -4,7 +4,7 @@ import useSWR from 'swr'
 import { IPizza } from 'types'
 import Skeleton from 'components/Skeleton'
 import Card from 'components/Card'
-import Pizza from 'components/Pizza'
+import Pizzas from 'components/Pizzas'
 import { useDispatch } from 'react-redux'
 import { onSave } from 'store/pizza-slice'
 
@@ -27,7 +27,7 @@ const Home = () => {
       {
         isLoading 
         ? <Skeleton />
-        : <Pizza />
+        : <Pizzas />
       }
     </div>
   )

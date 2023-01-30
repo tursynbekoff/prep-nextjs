@@ -3,13 +3,13 @@ import { IPizza } from 'types'
 import Card from './Card'
 import { useDispatch, useSelector } from 'react-redux'
 
-interface Pizza {
+interface Pizzas {
   pizza: {
     list: IPizza[]
   }
 } 
-const Pizza = () => {
-  const list = useSelector((state : Pizza) => state.pizza.list)
+const Pizzas = () => {
+  const list = useSelector((state : Pizzas) => state.pizza.list)
 
   return (
     <>
@@ -24,4 +24,4 @@ const Pizza = () => {
   )
 }
 
-export default Pizza
+export default Pizzas
