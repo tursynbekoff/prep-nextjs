@@ -1,6 +1,5 @@
 import React from 'react'
 import { useId } from "react-id-generator";
-import Button from 'components/Button'
 
 const Select = () => {
 
