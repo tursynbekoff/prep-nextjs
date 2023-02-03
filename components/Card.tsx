@@ -2,6 +2,7 @@ import React from 'react'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import { IPizza } from 'types'
+import Select from './Select';
 
 interface IProp {
   card: IPizza;
@@ -25,6 +26,7 @@ const Card: NextPage<IProp> = ({ card }) => {
       <p className="grow max-h-[4.5rem] overflow-hidden">
         {description}
       </p>
+      <Select />
       <div className="flex justify-between mt-3 items-center">
         <div className="font-semibold text-semibold">
           {`from ${price} $`}
