@@ -4,11 +4,6 @@ import Card from './Card'
 import { useSelector } from 'react-redux'
 import { pizzasSelector } from 'store/pizza-slice'
 
-interface Pizzas {
-  pizza: {
-    list: IPizza[]
-  }
-} 
 const Pizzas = () => {
   const pizzas = useSelector(pizzasSelector)
 

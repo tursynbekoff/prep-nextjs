@@ -10,7 +10,11 @@ export const sizePriceDictionary : sizePriceDictionary = {
   36: 1
 }
 
-export const doughPriceDictionary = {
+interface doughPriceDictionary {
+  [key: string]: number
+}
+
+export const doughPriceDictionary: doughPriceDictionary = {
   "classic": 0,
   "thin": 0.5
 }

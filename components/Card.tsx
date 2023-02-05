@@ -7,18 +7,15 @@ import { useDispatch } from 'react-redux';
 import { onAddPizza } from 'store/pizza-slice';
 import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
 
-interface IProp {
-  pizza: IPizza;
-}
 
-const Card: NextPage<IProp> = ({pizza}) => {
+const Card = ({pizza}: { pizza: IPizza }) => {
   const dispatch = useDispatch()
   const {imageUrl, name, description, price, doughType, sizes, id} = pizza
 
-  const [dough, setDough] = useState(doughType[0])
-  const [size, setSize] = useState(sizes[0])
-  const [pizzaPrice, setPizzaPrice] = useState(price)
-  const [count, setCount] = useState(0);
+  const [dough, setDough] = useState<string>(doughType[0])
+  const [size, setSize] = useState<number>(sizes[0])
+  const [pizzaPrice, setPizzaPrice] = useState<number>(price)
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     const afterSelectPrice = sizePriceDictionary[size] + doughPriceDictionary[dough] + price
@@ -58,8 +55,12 @@ const Card: NextPage<IProp> = ({pizza}) => {
           + Add
         </button>
       </div>
-      <div className="font-semibold text-semibold">
-       Added pizza count: {count}
+      <div className="font-semibold text-semibold flex justify-between">
+        {count > 0 && 
+          <>
+            <span>{`Your pizza ${ count == 1 ? 'box' : 'boxes' }: `}</span> <span>{count}</span>
+          </>
+        }
       </div>
     </div>
   )
