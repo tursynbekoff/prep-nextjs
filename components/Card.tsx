@@ -21,9 +21,7 @@ const Card: NextPage<IProp> = ({pizza}) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const sizeAddition  = sizePriceDictionary[size]
-    const doughAddition  = doughPriceDictionary[dough]
-    const afterSelectPrice = sizeAddition + doughAddition + price
+    const afterSelectPrice = sizePriceDictionary[size] + doughPriceDictionary[dough] + price
 
     setPizzaPrice(afterSelectPrice)
   }, [size, dough, price])
