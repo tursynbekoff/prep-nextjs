@@ -45,7 +45,7 @@ const Card: NextPage<IProp> = ({pizza}) => {
       <Select doughType={doughType} sizes={sizes} onSelectDough={setDough} onSelectSize={setSize}/>
       <div className="flex justify-between mt-3 items-center">
         <div className="font-semibold text-semibold">
-          {`from ${price} $`}
+          {`from ${pizzaPrice} $`}
         </div>
         <button
           className="px-4 py-1 text-md font-semibold flex items-center bg-[#ff6c17] rounded-full text-white hover:bg-[#ff6c17aa] active:bg-[#ff6c179a]"
@@ -57,7 +57,9 @@ const Card: NextPage<IProp> = ({pizza}) => {
         >
           + Add
         </button>
-        {count}
+      </div>
+      <div className="font-semibold text-semibold">
+       Added pizza count: {count}
       </div>
     </div>
   )
