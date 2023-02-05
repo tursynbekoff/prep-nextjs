@@ -2,10 +2,10 @@
   {
   "id": 1,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.4,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Pepperoni Fresh",
   "description": "Pepperoni, green pepper, mozzarella, marinara sauce",
   "price": 11.80
@@ -13,10 +13,10 @@
   {
   "id": 2,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.3,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Hawaiian",
   "description": "Ham, extra mozzarella, marinara sauce, pineapple",
   "price": 10.80
@@ -24,10 +24,10 @@
   {
   "id": 3,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.5,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Chicken BBQ",
   "description": "Extra chicken, mozzarella, bacon, red onions, bbq sauce",
   "price": 12.80
@@ -35,10 +35,10 @@
   {
   "id": 4,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.5,
-  "type": ["spicy", "vegetarian"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "vegetarian"],
+  "doughType": ["classic", "thin"],
   "name": "4 Cheese",
   "description": "Creamy sauce, cheddar, blue cheese, mozzarella cheese, hard cheese",
   "price": 10.80
@@ -46,10 +46,10 @@
   {
   "id": 5,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.6,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Chicken Hot",
   "description": "Creamy sauce, cheddar, blue cheese, mozzarella cheese, hard cheese",
   "price": 10.80
@@ -57,10 +57,10 @@
   {
   "id": 6,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.5,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Stuffed crust Chicken BBQ",
   "description": "Extra chicken, mozzarella, bacon, red onions, bbq sauce",
   "price": 10.80
@@ -68,10 +68,10 @@
   {
   "id": 7,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.4,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Pepperoni",
   "description": "Pepperoni, green pepper, mozzarella, marinara sauce",
   "price": 10.80
@@ -79,10 +79,10 @@
   {
   "id": 8,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.6,
-  "type": ["spicy", "vegetarian"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "vegetarian"],
+  "doughType": ["classic", "thin"],
   "name": "Vegan Overlord",
   "description": "Vegan cheese, sweet corn, red onions, green peppers, marinara sauce, cherry tomatoes, mushrooms",
   "price": 10.80
@@ -90,10 +90,10 @@
   {
   "id": 9,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/ec29465e-606b-4a04-a03e-da3940d37e0e.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.6,
-  "type": ["spicy"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy"],
+  "doughType": ["classic", "thin"],
   "name": "Half & Half pizza",
   "description": "What’s better than one pizza? A half and half pizza! Two tastes in one - perfect for sharing, or for the indecisive!",
   "price": 17.98
@@ -101,10 +101,10 @@
   {
   "id": 10,
   "imageUrl": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.6,
-  "type": ["spicy", "vegetarian"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "vegetarian"],
+  "doughType": ["classic", "thin"],
   "name": "Vegan Hot",
   "description": "Vegan cheese, red onions, green peppers, marinara sauce, chilli peppers, cherry tomatoes, mushrooms, sriracha sauce",
   "price": 11.80
@@ -112,10 +112,10 @@
   {
   "id": 11,
   "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/eb4ae64884be4f57b0db527ded19897a_138x138.jpeg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.8,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Chicken Tikka",
   "description": "Tikka masala sauce, chicken, yoghurt & mint sauce, chilli pepper, onion red, pepper bell, mozzarella cheese",
   "price": 11.80
@@ -123,10 +123,10 @@
   {
   "id": 12,
   "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/1d54cf9321984f83bb9fd747ffa185f1_138x138.jpeg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.8,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Fiery BBQ",
   "description": "Spicy beef, green peppers, pepperoni, marinara sauce, bbq sauce, mozzarella cheese, chilli peppers",
   "price": 12.80
@@ -134,10 +134,10 @@
   {
   "id": 13,
   "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/e40f1b2bc6b6428d87e06e55ac03fd52_138x138.jpeg",
-  "size": [26, 30, 36],
+  "sizes": [26, 30, 36],
   "raiting": 4.8,
-  "type": ["spicy", "meat"],
-  "dough": ["classic", "thin"],
+  "categories": ["spicy", "meat"],
+  "doughType": ["classic", "thin"],
   "name": "Stuffed crust Dodo Supreme",
   "description": "Marinara sauce, mozzarella, ham, pepperoni, bacon, green peppers, mushrooms, cherry tomatoes",
   "price": 12.80

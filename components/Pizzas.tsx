@@ -1,7 +1,8 @@
 import React from 'react'
 import { IPizza } from 'types'
 import Card from './Card'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { pizzasSelector } from 'store/pizza-slice'
 
 interface Pizzas {
   pizza: {
@@ -9,17 +10,13 @@ interface Pizzas {
   }
 } 
 const Pizzas = () => {
-  const list = useSelector((state : Pizzas) => state.pizza.list)
+  const pizzas = useSelector(pizzasSelector)
 
   return (
     <>
-      {
-        ((Array.isArray(list)) &&
-          list.map((el: IPizza) => {
-            return <Card key={el.id} card={el}/>
-          })
-        )
-      }
+      {pizzas.map((pizza: IPizza) => 
+        <Card key={pizza.id} pizza={pizza}/>
+      )}
     </>
   )
 }
