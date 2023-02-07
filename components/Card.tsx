@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { IPizza } from 'types'
 import Select from './Select';
 import { useDispatch } from 'react-redux';
-import { onAddPizza } from 'store/pizza-slice';
+import { onAddCalculate, onAddPizza } from 'store/pizza-slice';
 import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
 
 
@@ -50,17 +50,11 @@ const Card = ({pizza}: { pizza: IPizza }) => {
           onClick={() => {
             dispatch(onAddPizza({id, pizza: {name, price: pizzaPrice, doughType: dough, size}}))
             setCount(count + 1)
+            dispatch(onAddCalculate( {totalPizzaCount: 1, totalPizzaPrice: pizzaPrice}))
           }}
         >
           + Add
         </button>
-      </div>
-      <div className="font-semibold text-semibold flex justify-between">
-        {count > 0 && 
-          <>
-            <span>{`Your pizza ${ count == 1 ? 'box' : 'boxes' }: `}</span> <span>{count}</span>
-          </>
-        }
       </div>
     </div>
   )

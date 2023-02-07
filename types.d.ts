@@ -19,3 +19,8 @@ export interface OnAddPizza {
     size: number
   }
 }
+
+export interface OnAddCalculate {
+  totalPizzaPrice: number,
+  totalPizzaCount: number
+}
