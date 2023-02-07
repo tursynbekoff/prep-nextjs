@@ -1,19 +1,17 @@
 import axios from 'axios'
 import useSWR from 'swr'
 
-import { IPizza } from 'types'
 import Skeleton from 'components/Skeleton'
-import Card from 'components/Card'
 import Pizzas from 'components/Pizzas'
 import { useDispatch } from 'react-redux'
 import { onSave } from 'store/pizza-slice'
+import { PIZZAS_URL } from 'common/constants'
 
 const Home = () => {
   const dispatch = useDispatch()
-  const address = `http://localhost:6767/api/pizzas`
   const fetcher = async (url: string) => await axios.get(url).then((res) => res.data);
   
-  const { error, isLoading  } = useSWR(address, fetcher, {
+  const { error, isLoading  } = useSWR(PIZZAS_URL, fetcher, {
     onSuccess: (data) => {
       dispatch(onSave(data))
     }
