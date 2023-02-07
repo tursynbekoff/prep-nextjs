@@ -40,4 +40,4 @@ export default slice.reducer
 
 export const pizzasSelector = (state: RootState) => state.pizza.list || []
 export const selectedPizzasSelector = (state: RootState) => state.pizza.selected || []
-export const claculatedPizzasSelector = (state: RootState) => state.pizza.calculated || []
+export const claculatedPizzasSelector = (state: RootState) => state.pizza.calculated || {}
