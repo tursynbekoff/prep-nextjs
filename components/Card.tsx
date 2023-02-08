@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import { IPizza } from 'types'
 import Select from './Select';
-import { useDispatch } from 'react-redux';
-import { onAddCalculate, onAddPizza } from 'store/pizza-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { onAddCalculate, onAddPizza, selectedPizzasSelector } from 'store/pizza-slice';
 import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
 
 
@@ -22,6 +22,10 @@ const Card = ({pizza}: { pizza: IPizza }) => {
 
     setPizzaPrice(afterSelectPrice)
   }, [size, dough, price])
+
+
+  const totalSummary = useSelector(selectedPizzasSelector)
+  console.log("selectedPizzasSelector", totalSummary)
   
 
   return (

@@ -10,14 +10,16 @@ export interface IPizza {
   price: number 
 }
 
+interface addPizza {
+  name: string,
+  price: number 
+  doughType: string,
+  size: number
+}
 export interface OnAddPizza {
-  id : number,
-  pizza: {
-    name: string,
-    price: number 
-    doughType: string, 
-    size: number
-  }
+  [key: number]: addPizza[]
+  id: number,
+  pizza: addPizza
 }
 
 export interface OnAddCalculate {

@@ -5,7 +5,7 @@ import { IPizza, OnAddPizza, OnAddCalculate } from 'types'
 
 const initialState = {
   list: [] as IPizza[],
-  selected: {} as any, // * { 'PIZZA_ID': [{doughType: classic, price, size}, {doughType: thin}, {}] }
+  selected: {} as OnAddPizza,
   calculated: {} as OnAddCalculate
 }
 
@@ -39,5 +39,5 @@ export const { onSave, onAddPizza, onAddCalculate } = slice.actions
 export default slice.reducer
 
 export const pizzasSelector = (state: RootState) => state.pizza.list || []
-export const selectedPizzasSelector = (state: RootState) => state.pizza.selected || []
+export const selectedPizzasSelector = (state: RootState) => state.pizza.selected || {}
 export const claculatedPizzasSelector = (state: RootState) => state.pizza.calculated || {}

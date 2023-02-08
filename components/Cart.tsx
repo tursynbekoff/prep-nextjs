@@ -5,7 +5,7 @@ import { claculatedPizzasSelector } from 'store/pizza-slice'
 const Cart = () => {
 
   const totalSummary = useSelector(claculatedPizzasSelector)
-  console.log("cart : ", totalSummary)
+
   return (
     <div className="">
       <h1>cart</h1>
