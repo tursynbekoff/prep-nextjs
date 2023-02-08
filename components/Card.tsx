@@ -25,8 +25,6 @@ const Card = ({pizza}: { pizza: IPizza }) => {
 
 
   const totalSummary = useSelector(selectedPizzasSelector)
-  console.log("selectedPizzasSelector", totalSummary)
-  
 
   return (
     <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white">
