@@ -27,7 +27,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
   const totalSummary = useSelector(selectedPizzasSelector)
 
   return (
-    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white">
+    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative">
       <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
@@ -58,6 +58,12 @@ const Card = ({pizza}: { pizza: IPizza }) => {
           + Add
         </button>
       </div>
+      {
+        count > 0 && 
+          <div className=" absolute top-0 right-0 -mt-4 -mr-4 w-8 h-8 bg-red-500 rounded-full text-center flex justify-center items-center opacity-85 text-white">
+            <span className="" >{count}</span>
+          </div>
+      }
     </div>
   )
 }
