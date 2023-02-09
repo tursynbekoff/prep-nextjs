@@ -3,8 +3,8 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import { IPizza } from 'types'
 import Select from './Select';
-import { useDispatch } from 'react-redux';
-import { onAddPizza } from 'store/pizza-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { onAddCalculate, onAddPizza, selectedPizzasSelector } from 'store/pizza-slice';
 import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
 
 
@@ -22,7 +22,9 @@ const Card = ({pizza}: { pizza: IPizza }) => {
 
     setPizzaPrice(afterSelectPrice)
   }, [size, dough, price])
-  
+
+
+  const totalSummary = useSelector(selectedPizzasSelector)
 
   return (
     <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white">
@@ -50,17 +52,11 @@ const Card = ({pizza}: { pizza: IPizza }) => {
           onClick={() => {
             dispatch(onAddPizza({id, pizza: {name, price: pizzaPrice, doughType: dough, size}}))
             setCount(count + 1)
+            dispatch(onAddCalculate( {totalPizzaCount: 1, totalPizzaPrice: pizzaPrice}))
           }}
         >
           + Add
         </button>
-      </div>
-      <div className="font-semibold text-semibold flex justify-between">
-        {count > 0 && 
-          <>
-            <span>{`Your pizza ${ count == 1 ? 'box' : 'boxes' }: `}</span> <span>{count}</span>
-          </>
-        }
       </div>
     </div>
   )
