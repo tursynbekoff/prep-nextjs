@@ -4,7 +4,6 @@ import Head from 'next/head'
 import '../styles/globals.css'
 import store from "store/index";
 import type { AppProps } from 'next/app'
-import Navbar from 'components/Navbar'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 
@@ -18,10 +17,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex flex-col justify-center items-center">
-        <Navbar />
-        <h1>
-          Some text for test
-        </h1>
         <Component {...pageProps} />
       </main>
     </Provider>

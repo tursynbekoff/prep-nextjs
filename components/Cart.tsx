@@ -1,24 +1,24 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { claculatedPizzasSelector } from 'store/pizza-slice'
+import { calculatedPizzasSelector } from 'store/pizza-slice'
+import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 
 const Cart = () => {
-
-  const totalSummary = useSelector(claculatedPizzasSelector)
+  const totalSummary = useSelector(calculatedPizzasSelector)
 
   return (
-    <div className="">
-      <h1>cart</h1>
-
+    <>
       {Object.keys(totalSummary).length > 0 && 
-      <>
-        <p>
-        <span>{`Your pizza ${ totalSummary.totalPizzaCount == 1 ? 'box' : 'boxes' }: `}</span> <span>{totalSummary.totalPizzaCount}</span>
-        </p>
-        <p>{`Total price: ${Math.round(totalSummary.totalPizzaPrice * 10) / 10} $`}</p>
-      </>
+        <div className="px-4 py-1 flex justify-between w-32 items-center bg-[#ff6c17] rounded-full text-white hover:bg-[#ff6c17aa]">
+          <span>{`${Math.round(totalSummary.totalPizzaPrice * 10) / 10} $`}</span>
+          <span>|</span>
+          <div className="flex items-center gap-2">
+            <ShoppingCartIcon className="h-4 w-4" />
+            <span>{totalSummary.totalPizzaCount}</span>
+          </div>
+        </div>
       }
-    </div>
+    </>
   )
 }
 
