@@ -24,7 +24,7 @@ const Home = () => {
   return (
     <div className="p-5 flex flex-col gap-5">
       <Navbar />
-      <div className="flex w-[300px] md:w-[620px] lg:w-[932px] xl:w-[1248px] gap-4 flex-wrap">
+      <div className="mx-auto flex w-[300px] md:w-auto lg:w-[932px] xl:w-[1248px] gap-4 flex-wrap">
         {
           isLoading 
           ? <Skeleton />

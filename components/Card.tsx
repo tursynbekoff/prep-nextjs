@@ -52,7 +52,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
           {`from ${pizzaPrice} $`}
         </div>
         <button
-          className="px-4 py-1 flex items-center bg-[#ff6c17] rounded-full text-white hover:bg-[#ff6c17aa]"
+          className="px-4 py-1 flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
           type='button'
           onClick={addPizza}
         >

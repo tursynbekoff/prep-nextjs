@@ -10,7 +10,7 @@ const Cart = () => {
   return (
     <>
       {Object.keys(totalSummary).length > 0 && 
-        <Link href="/checkout" className="px-4 py-1 flex justify-between w-32 items-center bg-[#ff6c17] rounded-full text-white hover:bg-[#ff6c17aa]">
+        <Link href="/checkout" className="px-4 py-1 flex justify-between w-32 items-center bg-orange-500 rounded-full text-white hover:bg-orange-600">
           <span>{`${Math.round(totalSummary.totalPizzaPrice * 10) / 10} $`}</span>
           <span>|</span>
           <div className="flex items-center gap-2">
