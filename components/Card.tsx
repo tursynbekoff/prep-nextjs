@@ -32,7 +32,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
   }, [size, dough, price])
 
   return (
-    <div className="flex flex-col justify-between w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative">
+    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative">
       <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
