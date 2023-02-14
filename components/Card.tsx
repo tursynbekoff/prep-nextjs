@@ -32,7 +32,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
   }, [size, dough, price])
 
   return (
-    <div className="flex flex-col justify-between w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative">
+    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative">
       <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
@@ -52,7 +52,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
           {`from ${pizzaPrice} $`}
         </div>
         <button
-          className="px-4 py-1 flex items-center bg-[#ff6c17] rounded-full text-white hover:bg-[#ff6c17aa]"
+          className="px-4 py-1 flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
           type='button'
           onClick={addPizza}
         >

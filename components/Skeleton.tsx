@@ -21,7 +21,7 @@ const Skeleton = () => {
                 <span className="block h-[1.5rem] w-[100px]"></span>
               </div>
               <button
-                className="px-4 py-1 text-md font-semibold flex items-center bg-[#ffa16a] rounded-full text-white hover:bg-[#ff6c17aa]"
+                className="px-4 py-1 text-md font-semibold flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
                 type='button'
                 onClick={()=> {}}
                 disabled
