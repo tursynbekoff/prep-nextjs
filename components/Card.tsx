@@ -54,6 +54,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
         <button
           className="px-4 py-1 flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
           type='button'
+          role='button'
           onClick={addPizza}
         >
           + Add
