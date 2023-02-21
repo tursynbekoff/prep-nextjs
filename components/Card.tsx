@@ -32,7 +32,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
   }, [size, dough, price])
 
   return (
-    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative">
+    <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
       <div className="flex justify-center">
         <Image 
           src={`${imageUrl}`}
@@ -54,6 +54,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
         <button
           className="px-4 py-1 flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
           type='button'
+          role='button'
           onClick={addPizza}
         >
           + Add
@@ -61,7 +62,7 @@ const Card = ({pizza}: { pizza: IPizza }) => {
       </div>
       {
         count > 0 && 
-          <div className="absolute top-0 right-0 -mt-4 -mr-4 w-8 h-8 bg-red-500 rounded-full grid place-content-center text-white">
+          <div data-testid="count" className="absolute top-0 right-0 -mt-4 -mr-4 w-8 h-8 bg-red-500 rounded-full grid place-content-center text-white">
             {count}
           </div>
       }
