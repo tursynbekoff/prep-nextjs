@@ -10,8 +10,10 @@ export interface IPizza {
   price: number 
 }
 
-interface addPizza {
+export interface addPizza {
+  id: number,
   name: string,
+  imageUrl: string
   price: number 
   doughType: string,
   size: number
