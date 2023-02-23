@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 
 import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
-import { onAddCalculate, onAddPizza, setProducts } from 'store/pizza-slice';
+import { onAddCalculate, setProducts } from 'store/pizza-slice';
 import { IPizza } from 'types'
 
 import Select from './Select';
@@ -19,9 +19,8 @@ const Card = ({pizza}: { pizza: IPizza }) => {
   const [count, setCount] = useState<number>(0);
 
   function addPizza() {
-    dispatch(onAddPizza({id, pizza: {id, name, imageUrl, price: pizzaPrice, doughType: dough, size}}))
     dispatch(onAddCalculate( {totalPizzaCount: 1, totalPizzaPrice: pizzaPrice}))
-    dispatch(setProducts({id, name, imageUrl, price: pizzaPrice, doughType: dough, size}))
+    dispatch(setProducts({id, name, imageUrl, price: pizzaPrice, doughType: dough, size, productId: `${name}-${size}-${dough}-${pizzaPrice}`}))
     setCount(count + 1)
   }
 

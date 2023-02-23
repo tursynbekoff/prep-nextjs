@@ -17,6 +17,7 @@ export interface addPizza {
   price: number 
   doughType: string,
   size: number
+  productId: string
 }
 export interface OnAddPizza {
   [key: number]: addPizza[]

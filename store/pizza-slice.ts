@@ -9,7 +9,6 @@ const initialState = {
   calculated: {} as OnAddCalculate,
   products: [] as addPizza[],
   uniqueProductsList: [],
-  productCount: [],
 }
 
 const slice = createSlice({
@@ -18,11 +17,6 @@ const slice = createSlice({
   reducers: {
     onSave: (state, action: PayloadAction<IPizza[] | never[]>) => {
         state.list = action.payload 
-    },
-    onAddPizza: (state, action: PayloadAction<OnAddPizza >) => {
-      const {id, pizza} = action.payload
-      if (!(id in state.selected)) state.selected[id] = [pizza]
-      else state.selected[id].push(pizza)
     },
     onAddCalculate: (state, action: PayloadAction<OnAddCalculate | never>) => {
       if (Object.keys(state.calculated).length !== 0) {
@@ -45,12 +39,12 @@ const slice = createSlice({
       const uniqueProducts  : any = [];
 
       action.payload.forEach((product: any) => {
-        const variantId = `${product.name}-${product.size}-${product.doughType}-${product.price}`;
+        const variantId = product.productId
         counts[variantId] = (counts[variantId] || 0) + 1;
       });
     
       action.payload.forEach((product: any) => {
-        const variantId = `${product.name}-${product.size}-${product.doughType}-${product.price}`;
+        const variantId = product.productId
         if (counts[variantId] > 0) {
           uniqueProducts.push({ ...product, count: counts[variantId] });
           counts[variantId] = 0;
@@ -59,10 +53,43 @@ const slice = createSlice({
     
       state.uniqueProductsList = uniqueProducts;
     },
+
+    incrementItem: (state, action) => {
+      const { productId } = action.payload;
+      const index = state.uniqueProductsList.findIndex((p: any) => p.productId === productId);
+      state.uniqueProductsList[index].count++;
+
+      const prodObj = state.products.find((p) => p.productId === productId);
+      console.log("incrementItem",  state.products)
+      state.products.push(prodObj);
+      
+    },
+
+    decrementItem: (state, action) => {
+      const { productId } = action.payload;
+      const index = state.uniqueProductsList.findIndex((p: any) => p.productId === productId);
+      if( state.uniqueProductsList[index].count <= 1) {
+        state.uniqueProductsList.splice(index, 1);
+      } else {
+        state.uniqueProductsList[index].count--;
+      }
+
+      const prodIndex = state.products.findIndex((p) => p.productId === productId);
+
+      if (index !== -1) {
+        state.products.splice(prodIndex, 1);
+      }
+    },
+
+    removeItem: (state, action) => {
+      const { productId } = action.payload;
+      const index = state.uniqueProductsList.findIndex((p: any) => p.productId === productId);
+      state.uniqueProductsList.splice(index, 1);
+    },
   }
 }) 
 
-export const { onSave, onAddPizza, onAddCalculate, setProducts, onVariantCount } = slice.actions
+export const { onSave, onAddCalculate, setProducts, onVariantCount, incrementItem, decrementItem, removeItem } = slice.actions
 
 export default slice.reducer
 

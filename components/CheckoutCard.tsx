@@ -3,15 +3,28 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 
 import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
-import { onAddCalculate, onAddPizza } from 'store/pizza-slice';
+import { decrementItem, incrementItem, onAddCalculate, removeItem } from 'store/pizza-slice';
 import { IPizza } from 'types'
 
 import Select from './Select';
 
 const Card = ({pizza}: { pizza: any }) => {
 
-  const {imageUrl, name, price, doughType, size, count} = pizza
+  const {id, imageUrl, name, price, doughType, size, count, productId} = pizza
 
+  const dispatch = useDispatch();
+
+  const handleIncrement = (productId: string) => {
+    dispatch(incrementItem({ productId }));
+  };
+
+  const handleDecrement = (productId: string) => {
+    dispatch(decrementItem({ productId }));
+  };
+
+ const handleRemove = (productId: string) => {
+    dispatch(removeItem({ productId }));
+  };
 
   return (
     <div className="flex flex-wrap w-full justify-between items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
@@ -39,12 +52,12 @@ const Card = ({pizza}: { pizza: any }) => {
       </div>
 
       <div className="flex gap-3 font-semibold justify-between items-center">
-        <button onClick={()=> {}}>-</button>
+        <button onClick={()=> handleDecrement(productId)}>-</button>
         <div>
           {count}
         </div>
-        <button onClick={()=> {}}>+</button>
-        <button onClick={()=> {}}>del</button>
+        <button onClick={()=> handleIncrement(productId)}>+</button>
+        <button onClick={()=> handleRemove(productId)}>del</button>
       </div>
     </div>
   )
