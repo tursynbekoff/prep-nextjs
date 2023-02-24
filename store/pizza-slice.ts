@@ -22,7 +22,9 @@ const slice = createSlice({
     setProducts: (state, action: PayloadAction<addPizza | never>) => {
       const product = action.payload;
       state.products.push(product);
+
       state.productCount = state.products.length;
+      state.totalPrice += action.payload.price;
     },
     
     onVariantCount: (state, action) => {
@@ -56,6 +58,9 @@ const slice = createSlice({
       state.products.push(prodObj);
 
       state.productCount = state.products.length;  
+      state.totalPrice =  state.products.reduce((acc, prod) => {
+        return acc + prod.price
+      }, 0)
     },
 
     decrementItem: (state, action) => {
@@ -73,6 +78,9 @@ const slice = createSlice({
         state.products.splice(prodIndex, 1);
       }
       state.productCount = state.products.length;
+      state.totalPrice =  state.products.reduce((acc, prod) => {
+        return acc + prod.price
+      }, 0)
     },
 
     removeItem: (state, action) => {
@@ -93,7 +101,9 @@ const slice = createSlice({
       });
 
       state.productCount = state.products.length;
-
+      state.totalPrice =  state.products.reduce((acc, prod) => {
+        return acc + prod.price
+      }, 0)
     },
   }
 }) 
@@ -107,3 +117,4 @@ export const selectedPizzasSelector = (state: RootState) => state.pizza.selected
 export const listedProducts = (state: RootState) => state.pizza.products || []
 export const sameVariantCount = (state: RootState) => state.pizza.uniqueProductsList || []
 export const selectProductCount = (state: RootState) => state.pizza.productCount || 0;
+export const selectTotalPrice = (state: RootState) => state.pizza.totalPrice || 0;

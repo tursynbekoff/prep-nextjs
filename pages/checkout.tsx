@@ -11,11 +11,10 @@ const Checkout = () => {
   const dispatch = useDispatch();
   const orderedPizzas = useSelector(listedProducts)
   const pizzaCount = useSelector(sameVariantCount)
-  const productCount = useSelector(selectProductCount)
 
   useEffect(() => {
     dispatch(onVariantCount(orderedPizzas));
-  }, [dispatch, orderedPizzas, productCount]);
+  }, [dispatch, orderedPizzas]);
 
   return (
     <div className="p-5 flex flex-col gap-5">
