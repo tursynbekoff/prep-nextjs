@@ -1,13 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "store";
-import { IPizza, OnAddPizza, OnAddCalculate, addPizza } from 'types'
+import { IPizza, OnAddPizza, addPizza, uniquePizza, Count, Increment } from 'types'
 
 
 const initialState = {
   list: [] as IPizza[],
   selected: {} as OnAddPizza,
   products: [] as addPizza[],
-  uniqueProductsList: [],
+  uniqueProductsList: [] as uniquePizza[],
   productCount: 0,
   totalPrice: 0,
 }
@@ -16,10 +16,10 @@ const slice = createSlice({
   name: 'PIZZA',
   initialState,
   reducers: {
-    onSave: (state, action: PayloadAction<IPizza[] | never[]>) => {
+    onSave: (state, action: PayloadAction<IPizza[]>) => {
       state.list = action.payload 
     },
-    setProducts: (state, action: PayloadAction<addPizza | never>) => {
+    setProducts: (state, action: PayloadAction<addPizza >) => {
       const product = action.payload;
       state.products.push(product);
 
@@ -27,17 +27,17 @@ const slice = createSlice({
       state.totalPrice += action.payload.price;
     },
     
-    onVariantCount: (state, action) => {
+    onVariantCount: (state, action: PayloadAction<addPizza[]>) => {
 
-      const counts : any = {};
-      const uniqueProducts  : any = [];
+      const counts: Count = {};
+      const uniqueProducts: uniquePizza[] = [];
 
-      action.payload.forEach((product: any) => {
+      Object.values(action.payload).forEach((product: addPizza) => {
         const variantId = product.productId
         counts[variantId] = (counts[variantId] || 0) + 1;
       });
     
-      action.payload.forEach((product: any) => {
+      Object.values(action.payload).forEach((product: addPizza) => {
         const variantId = product.productId
         if (counts[variantId] > 0) {
           uniqueProducts.push({ ...product, count: counts[variantId] });
@@ -48,14 +48,18 @@ const slice = createSlice({
       state.uniqueProductsList = uniqueProducts;
     },
 
-    incrementItem: (state, action) => {
+    incrementItem: (state, action: PayloadAction<Increment>) => {
       const { productId } = action.payload;
-      const index = state.uniqueProductsList.findIndex((p: any) => p.productId === productId);
-      state.uniqueProductsList[index].count++;
+      const index = state.uniqueProductsList.findIndex((p: addPizza) => p.productId === productId);
+      
+      state.uniqueProductsList[index].count++
 
-      const prodObj = state.products.find((p) => p.productId === productId);
-      console.log("incrementItem",  state.products)
-      state.products.push(prodObj);
+
+      const prodObj : addPizza | undefined = Object.values(state.products).find((p: addPizza) => p.productId === productId);
+
+      if (prodObj) { 
+        state.products.push(prodObj);
+      }
 
       state.productCount = state.products.length;  
       state.totalPrice =  state.products.reduce((acc, prod) => {
@@ -63,9 +67,9 @@ const slice = createSlice({
       }, 0)
     },
 
-    decrementItem: (state, action) => {
+    decrementItem: (state, action: PayloadAction<Increment>) => {
       const { productId } = action.payload;
-      const index = state.uniqueProductsList.findIndex((p: any) => p.productId === productId);
+      const index = state.uniqueProductsList.findIndex((p: uniquePizza) => p.productId === productId);
       if( state.uniqueProductsList[index].count <= 1) {
         state.uniqueProductsList.splice(index, 1);
       } else {
@@ -85,11 +89,10 @@ const slice = createSlice({
 
     removeItem: (state, action) => {
       const { productId } = action.payload;
-      const index = state.uniqueProductsList.findIndex((p: any) => p.productId === productId);
+      const index = state.uniqueProductsList.findIndex((p: uniquePizza) => p.productId === productId);
       state.uniqueProductsList.splice(index, 1);
 
-
-      const indexes = state.products.reduce((acc, cur, index) => {
+      const indexes: number[] = state.products.reduce((acc: number[], cur, index: number) => {
         if (cur.productId === productId) {
           acc.push(index);
         }

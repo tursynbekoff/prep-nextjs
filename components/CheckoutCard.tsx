@@ -1,16 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 
-import { doughPriceDictionary, sizePriceDictionary } from 'common/constants';
 import { decrementItem, incrementItem, removeItem } from 'store/pizza-slice';
-import { IPizza } from 'types'
+import { uniquePizza } from 'types';
 
-import Select from './Select';
 
-const Card = ({pizza}: { pizza: any }) => {
+const Card = ({pizza}: { pizza: uniquePizza }) => {
 
-  const {id, imageUrl, name, price, doughType, size, count, productId} = pizza
+  const { imageUrl, name, price, doughType, size, count, productId} = pizza
 
   const dispatch = useDispatch();
 

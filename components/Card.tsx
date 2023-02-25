@@ -19,7 +19,9 @@ const Card = ({pizza}: { pizza: IPizza }) => {
   const [count, setCount] = useState<number>(0);
 
   function addPizza() {
-    dispatch(setProducts({id, name, imageUrl, price: pizzaPrice, doughType: dough, size, productId: `${name}-${size}-${dough}-${pizzaPrice}`}))
+    dispatch(setProducts({
+      id, name, imageUrl, price: pizzaPrice, doughType: dough, size, productId: `${name}-${size}-${dough}-${pizzaPrice}`
+    }))
     setCount(count + 1)
   }
 

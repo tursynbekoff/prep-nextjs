@@ -13,16 +13,37 @@ export interface IPizza {
 export interface addPizza {
   id: number,
   name: string,
-  imageUrl: string
-  price: number 
+  imageUrl: string,
+  price: number,
   doughType: string,
-  size: number
-  productId: string
+  size: number,
+  productId: string,
 }
+
+export interface uniquePizza {
+  id: number,
+  name: string,
+  imageUrl: string,
+  price: number,
+  doughType: string,
+  size: number,
+  productId: string,
+  count: number
+}
+
 export interface OnAddPizza {
   [key: number]: addPizza[]
   id: number,
   pizza: addPizza
+}
+
+export interface Count {
+  [key: string]: number
+}
+
+export interface Increment {
+  [key: string]: string
+  productId: string
 }
 
 export interface OnAddCalculate {
