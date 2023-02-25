@@ -21,9 +21,14 @@ const Checkout = () => {
     <div className="p-5 flex flex-col gap-5">
       <Navbar />
       <div className="grid grid-cols-1 w-full">
-        {pizzaCount.map((pizza: uniquePizza) => 
+        {pizzaCount.length > 0 ?
+         pizzaCount.map((pizza: uniquePizza) => 
           <CheckoutCard key={pizza.productId} pizza={pizza}/>
-        )}
+        ) : 
+          <h2 className="w-full">
+            You have no pizzas :(
+          </h2>
+        }
       </div>
     </div>
   )

@@ -29,8 +29,8 @@ const Card = ({pizza}: { pizza: uniquePizza }) => {
       <div className="flex ">
         <Image 
           src={`${imageUrl}`}
-          width={56}
-          height={56}
+          width={80}
+          height={80}
           className=""
           alt="pizza product"
         />
