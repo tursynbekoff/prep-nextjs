@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
-
+import { TrashIcon, PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/24/solid'
 import { decrementItem, incrementItem, removeItem } from 'store/pizza-slice';
 import { uniquePizza } from 'types';
 
@@ -25,7 +25,7 @@ const Card = ({pizza}: { pizza: uniquePizza }) => {
   };
 
   return (
-    <div className="flex flex-wrap w-full justify-between items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
+    <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-[616px] lg:w-[932px] xl:w-[1248px] items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
       <div className="flex ">
         <Image 
           src={`${imageUrl}`}
@@ -49,13 +49,19 @@ const Card = ({pizza}: { pizza: uniquePizza }) => {
         
       </div>
 
-      <div className="flex gap-3 font-semibold justify-between items-center">
-        <button onClick={()=> handleDecrement(productId)}>-</button>
+      <div className="flex gap-3 md:gap-5 font-semibold justify-between items-center">
+        <button onClick={()=> handleDecrement(productId)}>
+          <MinusCircleIcon className="h-5 w-5" />
+        </button>
         <div>
           {count}
         </div>
-        <button onClick={()=> handleIncrement(productId)}>+</button>
-        <button onClick={()=> handleRemove(productId)}>del</button>
+        <button onClick={()=> handleIncrement(productId)}>
+          <PlusCircleIcon className="h-5 w-5" />
+        </button>
+        <button onClick={()=> handleRemove(productId)}>
+          <TrashIcon className="h-5 w-5" />
+        </button>
       </div>
     </div>
   )

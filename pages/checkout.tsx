@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { onVariantCount, listedProducts, sameVariantCount, selectProductCount } from 'store/pizza-slice'
+import { onVariantCount, listedProducts, sameVariantCount } from 'store/pizza-slice'
 
 import CheckoutCard from 'components/CheckoutCard'
 import Navbar from 'components/Navbar'
@@ -20,7 +20,7 @@ const Checkout = () => {
   return (
     <div className="p-5 flex flex-col gap-5">
       <Navbar />
-      <div className="grid grid-cols-1 max-w-xl">
+      <div className="grid grid-cols-1 w-full">
         {pizzaCount.map((pizza: uniquePizza) => 
           <CheckoutCard key={pizza.productId} pizza={pizza}/>
         )}
