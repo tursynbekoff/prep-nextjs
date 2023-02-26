@@ -11,7 +11,6 @@ export interface IPizza {
 }
 
 export interface addPizza {
-  id: number,
   name: string,
   imageUrl: string,
   price: number,
@@ -21,7 +20,6 @@ export interface addPizza {
 }
 
 export interface uniquePizza {
-  id: number,
   name: string,
   imageUrl: string,
   price: number,

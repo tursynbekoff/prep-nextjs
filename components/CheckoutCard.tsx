@@ -6,23 +6,16 @@ import { decrementItem, incrementItem, removeItem } from 'store/pizza-slice';
 import { uniquePizza } from 'types';
 
 
-const Card = ({pizza}: { pizza: uniquePizza }) => {
-
-  const { imageUrl, name, price, doughType, size, count, productId} = pizza
-
+const Card = ({pizza: {
+  imageUrl,
+  name,
+  price,
+  doughType,
+  size,
+  count,
+  productId
+}}: { pizza: uniquePizza }) => {
   const dispatch = useDispatch();
-
-  const handleIncrement = (productId: string) => {
-    dispatch(incrementItem({ productId }));
-  };
-
-  const handleDecrement = (productId: string) => {
-    dispatch(decrementItem({ productId }));
-  };
-
- const handleRemove = (productId: string) => {
-    dispatch(removeItem({ productId }));
-  };
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-[616px] lg:w-[932px] xl:w-[1248px] items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
@@ -38,28 +31,28 @@ const Card = ({pizza}: { pizza: uniquePizza }) => {
       <h2 className="font-bold text-xl">{name}</h2>
       <div className="flex flex-col font-semibold justify-between items-center">
         <div>
-          {`dough: ${doughType}`}
+          dough: {doughType}
         </div>
         <div>
-          {` ${size} cm`}
+          {size} cm
         </div>
         <div>
-          {` ${price} $ `}
+          {price} $
         </div>
         
       </div>
 
       <div className="flex gap-3 md:gap-5 font-semibold justify-between items-center">
-        <button onClick={()=> handleDecrement(productId)}>
+        <button onClick={()=> dispatch(decrementItem({ productId }))}>
           <MinusCircleIcon className="h-5 w-5" />
         </button>
         <div>
           {count}
         </div>
-        <button onClick={()=> handleIncrement(productId)}>
+        <button onClick={()=> dispatch(incrementItem({ productId }))}>
           <PlusCircleIcon className="h-5 w-5" />
         </button>
-        <button onClick={()=> handleRemove(productId)}>
+        <button onClick={()=> dispatch(removeItem({ productId }))}>
           <TrashIcon className="h-5 w-5" />
         </button>
       </div>

@@ -98,10 +98,8 @@ const slice = createSlice({
         }
         return acc;
       }, []);
-      
-      indexes.forEach((index) => {
-        state.products.splice(index, 1);
-      });
+
+      state.products.filter((_, index) => !indexes.includes(index))
 
       state.productCount = state.products.length;
       state.totalPrice =  state.products.reduce((acc, prod) => {

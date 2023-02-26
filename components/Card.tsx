@@ -20,7 +20,12 @@ const Card = ({pizza}: { pizza: IPizza }) => {
 
   function addPizza() {
     dispatch(setProducts({
-      id, name, imageUrl, price: pizzaPrice, doughType: dough, size, productId: `${name}-${size}-${dough}-${pizzaPrice}`
+      productId: `${name}-${size}-${dough}-${pizzaPrice}`,
+      name, 
+      imageUrl, 
+      price: pizzaPrice, 
+      doughType: dough, 
+      size,
     }))
     setCount(count + 1)
   }
