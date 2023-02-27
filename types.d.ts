@@ -39,7 +39,7 @@ export interface Count {
   [key: string]: number
 }
 
-export interface Increment {
+export interface IncrementDecrement {
   [key: string]: string
   productId: string
 }

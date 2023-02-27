@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "store";
-import { IPizza, OnAddPizza, addPizza, uniquePizza, Count, Increment } from 'types'
+import { IPizza, addPizza, uniquePizza, Count, IncrementDecrement } from 'types'
 
 
 const initialState = {
   list: [] as IPizza[],
-  selected: {} as OnAddPizza,
   products: [] as addPizza[],
   uniqueProductsList: [] as uniquePizza[],
   productCount: 0,
@@ -48,7 +47,7 @@ const slice = createSlice({
       state.uniqueProductsList = uniqueProducts;
     },
 
-    incrementItem: (state, action: PayloadAction<Increment>) => {
+    incrementItem: (state, action: PayloadAction<IncrementDecrement>) => {
       const { productId } = action.payload;
       const index = state.uniqueProductsList.findIndex((p: addPizza) => p.productId === productId);
       
@@ -67,7 +66,7 @@ const slice = createSlice({
       }, 0)
     },
 
-    decrementItem: (state, action: PayloadAction<Increment>) => {
+    decrementItem: (state, action: PayloadAction<IncrementDecrement>) => {
       const { productId } = action.payload;
       const index = state.uniqueProductsList.findIndex((p: uniquePizza) => p.productId === productId);
       if( state.uniqueProductsList[index].count <= 1) {
@@ -99,7 +98,7 @@ const slice = createSlice({
         return acc;
       }, []);
 
-      state.products.filter((_, index) => !indexes.includes(index))
+      state.products = state.products.filter((_, index) => !indexes.includes(index))
 
       state.productCount = state.products.length;
       state.totalPrice =  state.products.reduce((acc, prod) => {
@@ -114,7 +113,6 @@ export const { onSave, setProducts, onVariantCount, incrementItem, decrementItem
 export default slice.reducer
 
 export const pizzasSelector = (state: RootState) => state.pizza.list || []
-export const selectedPizzasSelector = (state: RootState) => state.pizza.selected || {}
 export const listedProducts = (state: RootState) => state.pizza.products || []
 export const sameVariantCount = (state: RootState) => state.pizza.uniqueProductsList || []
 export const selectProductCount = (state: RootState) => state.pizza.productCount || 0;

@@ -8,7 +8,13 @@ interface IProps {
   onSelectSize: (val: number) => void,
 }
 
-const Select = ({doughType, sizes, onSelectDough, onSelectSize}: IProps) => {
+const Select = ({
+  doughType,
+  sizes,
+  onSelectDough,
+  onSelectSize
+}: IProps) => {
+  
   const doughList = useId(2, "dough");
   const idList = useId(3, "size");
 

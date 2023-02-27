@@ -16,8 +16,8 @@ const Navbar = () => {
         <button type="button" onClick={() => router.back()}>
           <ArrowLongLeftIcon className=" w-10" />
         </button>
-
-        : <div>
+        : 
+        <div aria-label="logo">
           <ChartPieIcon className="h-10 w-10" />
         </div>
       }

@@ -8,10 +8,16 @@ import { IPizza } from 'types'
 
 import Select from './Select';
 
-const Card = ({pizza}: { pizza: IPizza }) => {
+const Card = ({pizza: {
+  imageUrl,
+  name,
+  description,
+  price,
+  doughType,
+  sizes,
+}}: { pizza: IPizza }) => {
   const dispatch = useDispatch()
 
-  const {imageUrl, name, description, price, doughType, sizes, id} = pizza
 
   const [dough, setDough] = useState<string>(doughType[0])
   const [size, setSize] = useState<number>(sizes[0])
