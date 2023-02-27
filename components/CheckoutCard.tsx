@@ -21,7 +21,7 @@ const Card = ({pizza: {
     <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-[616px] lg:w-[932px] xl:w-[1248px] items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
       <div className="flex ">
         <Image 
-          src={`${imageUrl}`}
+          src={imageUrl}
           width={80}
           height={80}
           className=""
