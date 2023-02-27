@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { onVariantCount, listedProducts, sameVariantCount } from 'store/pizza-slice'
+import { setUniqueProductList, listedProducts, sameVariantCount } from 'store/pizza-slice'
 
 import CheckoutCard from 'components/CheckoutCard'
 import Navbar from 'components/Navbar'
@@ -14,7 +14,7 @@ const Checkout = () => {
   const pizzaCount = useSelector(sameVariantCount)
 
   useEffect(() => {
-    dispatch(onVariantCount(orderedPizzas));
+    dispatch(setUniqueProductList(orderedPizzas));
   }, [dispatch, orderedPizzas]);
 
   return (

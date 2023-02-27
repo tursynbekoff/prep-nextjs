@@ -24,7 +24,7 @@ const Card = ({pizza: {
   const [pizzaPrice, setPizzaPrice] = useState<number>(price)
   const [count, setCount] = useState<number>(0);
 
-  function addPizza() {
+  function AddedPizza() {
     dispatch(setProducts({
       productId: `${name}-${size}-${dough}-${pizzaPrice}`,
       name, 
@@ -46,7 +46,7 @@ const Card = ({pizza: {
     <div className="flex flex-col w-[300px] border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
       <div className="flex justify-center">
         <Image 
-          src={`${imageUrl}`}
+          src={imageUrl}
           width={256}
           height={256}
           className=""
@@ -66,7 +66,7 @@ const Card = ({pizza: {
           className="px-4 py-1 flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
           type='button'
           role='button'
-          onClick={addPizza}
+          onClick={AddedPizza}
         >
           + Add
         </button>

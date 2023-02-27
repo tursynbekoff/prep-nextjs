@@ -10,7 +10,7 @@ export interface IPizza {
   price: number 
 }
 
-export interface addPizza {
+export interface AddedPizza {
   name: string,
   imageUrl: string,
   price: number,
@@ -30,13 +30,9 @@ export interface uniquePizza {
 }
 
 export interface OnAddPizza {
-  [key: number]: addPizza[]
+  [key: number]: AddedPizza[]
   id: number,
-  pizza: addPizza
-}
-
-export interface Count {
-  [key: string]: number
+  pizza: AddedPizza
 }
 
 export interface IncrementDecrement {
