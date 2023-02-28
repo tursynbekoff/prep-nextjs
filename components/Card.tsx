@@ -24,7 +24,7 @@ const Card = ({pizza: {
   const [pizzaPrice, setPizzaPrice] = useState<number>(price)
   const [count, setCount] = useState<number>(0);
 
-  function AddedPizza() {
+  function addingPizza() {
     dispatch(setProducts({
       productId: `${name}-${size}-${dough}-${pizzaPrice}`,
       name, 
@@ -66,7 +66,7 @@ const Card = ({pizza: {
           className="px-4 py-1 flex items-center bg-orange-500 rounded-full text-white hover:bg-orange-600"
           type='button'
           role='button'
-          onClick={AddedPizza}
+          onClick={addingPizza}
         >
           + Add
         </button>
