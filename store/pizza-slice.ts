@@ -1,12 +1,10 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "store";
-import { IPizza, addedPizza, uniquePizza, IncrementDecrement } from 'types'
-
+import { IPizza, AddedPizza, ProductId } from 'types'
 
 const initialState = {
   list: [] as IPizza[],
-  products: [] as addedPizza[],
-  uniqueProductsList: [] as uniquePizza[],
+  products: [] as AddedPizza[],
   productCount: 0,
   totalPrice: 0,
 }
@@ -18,96 +16,42 @@ const slice = createSlice({
     onSave: (state, action: PayloadAction<IPizza[]>) => {
       state.list = action.payload 
     },
-    setProducts: (state, action: PayloadAction<addedPizza >) => {
-      const product = action.payload;
-
-      state.products.push(product);
-      state.productCount = state.products.length;
-
-      state.totalPrice += product.price;
+    setProducts: (state, action: PayloadAction<AddedPizza>) => {
+      state.products.push(action.payload);
     },
-    
-    setUniqueProductList: (state, action: PayloadAction<addedPizza[]>) => {
-
-      const productList = action.payload;
-
-      const counts: Record<string, number> = {};
-      const uniqueProducts: uniquePizza[] = [];
-
-      productList.forEach((product: addedPizza) => {
-        const variantId = product.productId
-        counts[variantId] = (counts[variantId] || 0) + 1;
-      });
-    
-      productList.forEach((product: addedPizza) => {
-        const variantId = product.productId
-        if (counts[variantId] > 0) {
-          uniqueProducts.push({ ...product, count: counts[variantId] });
-          counts[variantId] = 0;
-        }
-      });
-    
-      state.uniqueProductsList = uniqueProducts;
+    incrementItem: (state, action: PayloadAction<ProductId>) => {
+      const index = state.products.findIndex((p) => p.productId === action.payload);
+      state.products.push(state.products[index])
     },
-
-    incrementItem: (state, action: PayloadAction<IncrementDecrement>) => {
-      const { productId } = action.payload;
-
-      const index = state.uniqueProductsList.findIndex((p: addedPizza) => p.productId === productId);
-      state.uniqueProductsList[index].count++
-
-      const prodObj : addedPizza | undefined = state.products.find((p: addedPizza) => p.productId === productId);
-      if (prodObj) { 
-        state.products.push(prodObj);
-      }
-
-      state.productCount = state.products.length;  
-      state.totalPrice =  state.products.reduce((acc, prod) => {
-        return acc + prod.price
-      }, 0)
+    decrementItem: (state, action: PayloadAction<ProductId>) => {
+      const index = state.products.findIndex((p) => p.productId === action.payload)
+      state.products.splice(index, 1) 
     },
-
-    decrementItem: (state, action: PayloadAction<IncrementDecrement>) => {
-      const { productId } = action.payload;
-      const index = state.uniqueProductsList.findIndex((p: uniquePizza) => p.productId === productId);
-      if( state.uniqueProductsList[index].count <= 1) {
-        state.uniqueProductsList.splice(index, 1);
-      } else {
-        state.uniqueProductsList[index].count--;
-      }
-
-      const prodIndex = state.products.findIndex((p) => p.productId === productId);
-      if (index !== -1) {
-        state.products.splice(prodIndex, 1);
-      }
-      
-      state.productCount = state.products.length;
-      state.totalPrice =  state.products.reduce((acc, prod) => {
-        return acc + prod.price
-      }, 0)
-    },
-
-    removeItem: (state, action) => {
-      const { productId } = action.payload;
-      const index = state.uniqueProductsList.findIndex((p: uniquePizza) => p.productId === productId);
-      state.uniqueProductsList.splice(index, 1);
-
-      state.products = state.products.filter((p) => p.productId !== productId)
-
-      state.productCount = state.products.length;
-      state.totalPrice =  state.products.reduce((acc, prod) => {
-        return acc + prod.price
-      }, 0)
+    removeItem: (state, action: PayloadAction<ProductId>) => {
+      state.products = state.products.filter((p) => p.productId !== action.payload)
     },
   }
 }) 
 
-export const { onSave, setProducts, setUniqueProductList, incrementItem, decrementItem, removeItem } = slice.actions
+export const { onSave, setProducts, incrementItem, decrementItem, removeItem } = slice.actions
 
 export default slice.reducer
 
-export const pizzasSelector = (state: RootState) => state.pizza.list || []
-export const listedProducts = (state: RootState) => state.pizza.products || []
-export const sameVariantCount = (state: RootState) => state.pizza.uniqueProductsList || []
-export const selectProductCount = (state: RootState) => state.pizza.productCount || 0;
-export const selectTotalPrice = (state: RootState) => state.pizza.totalPrice || 0;
+export const pizzasSelector = (state: RootState) => state.pizza.list
+export const addedProductsSelector = (state: RootState) => state.pizza.products
+export const productsCountSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.length)
+export const totalPriceSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.reduce((a, b) => a + b.price, 0))
+export const addedProductsMappedSelector = createSelector(
+  addedProductsSelector, 
+  (pizzas) => {
+    const products = pizzas.reduce((
+      res: Record<ProductId, {count?: number} & AddedPizza>, 
+      curr: AddedPizza
+    ) => {
+      res[curr.productId] = {...curr, count: (res[curr.productId]?.count || 0) + 1}
+      return res
+    }, {})
+
+    return Object.values(products)
+  }
+)

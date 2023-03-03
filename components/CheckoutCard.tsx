@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 import { TrashIcon, PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/24/solid'
 import { decrementItem, incrementItem, removeItem } from 'store/pizza-slice';
-import { uniquePizza } from 'types';
+import { AddedPizza } from 'types';
 
 
 const Card = ({pizza: {
@@ -14,7 +14,7 @@ const Card = ({pizza: {
   size,
   count,
   productId
-}}: { pizza: uniquePizza }) => {
+}}: { pizza: AddedPizza }) => {
   const dispatch = useDispatch();
 
   return (
@@ -43,16 +43,16 @@ const Card = ({pizza: {
       </div>
 
       <div className="flex gap-3 md:gap-5 font-semibold justify-between items-center">
-        <button onClick={()=> dispatch(decrementItem({ productId }))}>
+        <button onClick={()=> dispatch(decrementItem(productId))}>
           <MinusCircleIcon className="h-5 w-5" />
         </button>
         <div>
           {count}
         </div>
-        <button onClick={()=> dispatch(incrementItem({ productId }))}>
+        <button onClick={()=> dispatch(incrementItem(productId))}>
           <PlusCircleIcon className="h-5 w-5" />
         </button>
-        <button onClick={()=> dispatch(removeItem({ productId }))}>
+        <button onClick={()=> dispatch(removeItem(productId))}>
           <TrashIcon className="h-5 w-5" />
         </button>
       </div>
