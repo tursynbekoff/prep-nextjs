@@ -2,7 +2,7 @@ export interface IPizza {
   id: number,
   imageUrl: string,
   doughType: ['classic', 'thin'],
-  sizes: number[],
+  sizes: [26, 30, 36],
   raiting: number,
   types: string[],
   name: string,
@@ -10,19 +10,30 @@ export interface IPizza {
   price: number 
 }
 
-interface addPizza {
+export interface AddedPizza {
   name: string,
-  price: number 
+  imageUrl: string,
+  price: number,
   doughType: string,
-  size: number
+  size: number,
+  productId: string,
+  count?: number
 }
+
 export interface OnAddPizza {
-  [key: number]: addPizza[]
+  [key: number]: AddedPizza[]
   id: number,
-  pizza: addPizza
+  pizza: AddedPizza
+}
+
+export interface IncrementDecrement {
+  [key: string]: string
+  productId: string
 }
 
 export interface OnAddCalculate {
   totalPizzaPrice: number,
   totalPizzaCount: number
 }
+
+export type ProductId = string;

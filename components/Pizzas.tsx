@@ -1,15 +1,16 @@
 import React from 'react'
-import { IPizza } from 'types'
-import Card from './Card'
 import { useSelector } from 'react-redux'
+
 import { pizzasSelector } from 'store/pizza-slice'
+
+import Card from './Card'
 
 const Pizzas = () => {
   const pizzas = useSelector(pizzasSelector)
 
   return (
     <>
-      {pizzas.map((pizza: IPizza) => 
+      {pizzas.map((pizza) => 
         <Card key={pizza.id} pizza={pizza}/>
       )}
     </>
