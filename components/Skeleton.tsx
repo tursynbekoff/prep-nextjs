@@ -3,7 +3,7 @@ import React from 'react'
 const Skeleton = () => {
 
   return (
-    <>
+    <div role="loading-skeleton">
       {
         [1, 2, 3].map((el : any) => (
           <div key={`${el}-skeleton`} className="w-[300px] animate-pulse flex flex-col border-2 rounded-lg border-gray-200 p-5 bg-white">
@@ -32,7 +32,7 @@ const Skeleton = () => {
           </div>
         ))
       }
-    </>
+    </div>
   )
 }
 

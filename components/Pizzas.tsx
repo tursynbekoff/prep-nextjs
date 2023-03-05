@@ -9,11 +9,11 @@ const Pizzas = () => {
   const pizzas = useSelector(pizzasSelector)
 
   return (
-    <>
+    <div role="pizzas-wrapper">
       {pizzas.map((pizza) => 
         <Card key={pizza.id} pizza={pizza}/>
       )}
-    </>
+    </div>
   )
 }
 
