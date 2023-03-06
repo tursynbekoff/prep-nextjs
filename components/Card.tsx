@@ -54,7 +54,7 @@ const Card = ({pizza: {
       <Select doughType={doughType} sizes={sizes} onSelectDough={setDough} onSelectSize={setSize}/>
       
       <div className="flex font-semibold justify-between items-center">
-        <div>from {price + SIZE_PRICES[size] + DOUGH_PRICES[dough]} $</div>
+        <div role="pizza-price">from {price + SIZE_PRICES[size] + DOUGH_PRICES[dough]} $</div>
         <button
           className="px-4 py-1 grid place-content-center bg-orange-500 hover:bg-orange-600 rounded-full text-white"
           role='button'
