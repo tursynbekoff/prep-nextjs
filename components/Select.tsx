@@ -21,7 +21,7 @@ const Select = ({
         {doughType.map((dough, i) => (
           <li key={i} className="w-full">
             <input id={id + '' + dough} className="sr-only peer" type="radio" value={dough} name="dough" onChange={(e) => onSelectDough(e.target.value as 'classic' | 'thin')}/>
-            <label htmlFor={id + '' + dough} className="capitalize flex justify-center w-full py-1 px-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 peer-checked:ring-teal-500 peer-checked:ring-2 peer-checked:border-transparent">
+            <label role={`dough-${dough}`} htmlFor={id + '' + dough} className="capitalize flex justify-center w-full py-1 px-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 peer-checked:ring-teal-500 peer-checked:ring-2 peer-checked:border-transparent">
               {dough}
             </label>
           </li>
@@ -31,7 +31,7 @@ const Select = ({
         {sizes.map((size, i) => (
           <li key={i} className="w-full">
             <input id={id + '' + size} className="sr-only peer" type="radio" value={size} name="size" onChange={(e) => onSelectSize(+e.target.value as 26 | 30 | 36)}/>
-            <label htmlFor={id + '' + size} className="flex justify-center w-full py-1 px-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent">
+            <label role={`size-${size}`} htmlFor={id + '' + size} className="flex justify-center w-full py-1 px-2 bg-white border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 peer-checked:ring-green-500 peer-checked:ring-2 peer-checked:border-transparent">
               {size} cm
             </label>
           </li>
