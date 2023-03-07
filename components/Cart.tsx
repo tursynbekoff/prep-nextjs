@@ -10,7 +10,7 @@ const Cart = ({productCount}: {productCount: number}) => {
 
   return (
     <Link href="/checkout" className="px-4 py-1 flex justify-between min-w-content items-center bg-orange-500 hover:bg-orange-600 rounded-full text-white">
-      <span>{Math.round(totalPrice * 10) / 10} $</span>
+      <span role="total-price">{Math.round(totalPrice * 10) / 10} $</span>
       <span>|</span>
       <div className="flex items-center gap-2">
         <ShoppingCartIcon className="h-4 w-4" />
