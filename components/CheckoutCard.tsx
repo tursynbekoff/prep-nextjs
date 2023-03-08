@@ -18,7 +18,7 @@ const Card = ({pizza: {
   const dispatch = useDispatch();
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 w-full md:w-[616px] lg:w-[932px] xl:w-[1248px] items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" role="pizza-card" aria-label="card">
+    <div role="checkout-card" className="grid grid-cols-2 md:grid-cols-4 w-full md:w-[616px] lg:w-[932px] xl:w-[1248px] items-center gap-4 mb-2 border-2 rounded-lg border-gray-200 p-5 bg-white relative" aria-label="card">
       <div className="flex ">
         <Image 
           src={imageUrl}
@@ -46,7 +46,7 @@ const Card = ({pizza: {
         <button onClick={()=> dispatch(decrementItem(productId))}>
           <MinusCircleIcon className="h-5 w-5" />
         </button>
-        <div>
+        <div role="same-pizza-type-count">
           {count}
         </div>
         <button onClick={()=> dispatch(incrementItem(productId))}>
