@@ -8,7 +8,6 @@ describe('Select pizza and checkout page', () => {
     cy.get('[role="pizza-card"]').eq(2).find('[role="button"]').click()
     cy.get('[role="pizza-card"]').eq(3).find('[role="button"]').click()
     cy.get('[role="pizza-card"]').eq(4).find('[role="button"]').click()
-
     cy.get('[role="total-price"]').click()
 
     cy.get('[role="checkout-card"]').should('have.length', expectedAmount)
@@ -20,9 +19,7 @@ describe('Select pizza and checkout page', () => {
     const expectedAmount = 2;
 
     cy.get('[role="pizza-card"]').eq(1).find('[role="size-36"]').click()
-
     cy.get('[role="pizza-card"]').eq(1).find('[role="button"]').click().click()
-
     cy.get('[role="total-price"]').click()
 
     cy.get('[role="same-pizza-type-count"]').should('have.text', expectedAmount)
