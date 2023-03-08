@@ -11,7 +11,6 @@ describe('Select pizza and checkout page', () => {
     cy.get('[role="total-price"]').click()
 
     cy.get('[role="checkout-card"]').should('have.length', expectedAmount)
-
   })
 
   it('should in checkout page have count of same type of pizza', () => {
@@ -23,7 +22,5 @@ describe('Select pizza and checkout page', () => {
     cy.get('[role="total-price"]').click()
 
     cy.get('[role="same-pizza-type-count"]').should('have.text', expectedAmount)
-
   })
-
 })
