@@ -30,6 +30,7 @@ describe('Select pizza', () => {
     cy.get('[role="pizza-card"]').eq(1).find('[role="size-30"]').click()
     cy.get('[role="pizza-card"]').eq(1).find('[role="button"]').click().click()
     
-    cy.get('[role="total-price"]').should('have.text', expectedTest).and('have.length', 1)
+    cy.get('[role="total-price"]').should('have.text', expectedTest)
+      .and('have.length', 1)
   })
 })
