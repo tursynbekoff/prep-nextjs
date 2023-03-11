@@ -22,5 +22,6 @@ describe('Select pizza and checkout page', () => {
     cy.get('[role="total-price"]').click()
 
     cy.get('[role="same-pizza-type-count"]').should('have.text', expectedAmount)
+      .and('have.length', 1)
   })
 })
