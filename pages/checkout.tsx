@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { addedProductsMappedSelector } from 'store/pizza-slice'
+import { addedProductsMappedSelector } from '~store/pizza-slice'
 
 import { AddedPizza } from 'types'
 

@@ -5,8 +5,8 @@ import { configureStore } from '@reduxjs/toolkit'
 import type { PreloadedState } from '@reduxjs/toolkit'
 import { Provider } from 'react-redux'
 
-import type { AppStore, RootState } from 'store/index'
-import pizzaSlice from 'store/pizza-slice'
+import type { AppStore, RootState } from '~store/index'
+import pizzaSlice from '~store/pizza-slice'
 
 
 interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {

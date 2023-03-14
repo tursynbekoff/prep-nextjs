@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import { ShoppingCartIcon } from '@heroicons/react/24/solid'
 
-import { totalPriceSelector } from 'store/pizza-slice'
+import { totalPriceSelector } from '~store/pizza-slice'
 
 const Cart = ({productCount}: {productCount: number}) => {
   const totalPrice = useSelector(totalPriceSelector)
