@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 
 import { SIZE_PRICES, DOUGH_PRICES } from 'common/constants';
-import { setProducts } from 'store/pizza-slice';
+import { setProducts } from '~store/pizza-slice';
 import { IPizza } from 'types'
 
 import Select from './Select';

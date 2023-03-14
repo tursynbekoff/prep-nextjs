@@ -1,13 +1,14 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import axios from 'axios'
 import useSWR from 'swr'
 
-import Skeleton from 'components/Skeleton'
-import Pizzas from 'components/Pizzas'
-import { useDispatch } from 'react-redux'
-import { onSave } from 'store/pizza-slice'
 import { PIZZAS_URL } from 'common/constants'
-import Navbar from 'components/Navbar'
+import { onSave } from '~store/pizza-slice'
+
+import Skeleton from '~components/Skeleton'
+import Navbar from '~components/Navbar'
+import Pizzas from '~components/Pizzas'
 
 const Home = () => {
   const dispatch = useDispatch()

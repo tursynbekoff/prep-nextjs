@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useDispatch } from 'react-redux';
 import { TrashIcon, PlusCircleIcon, MinusCircleIcon } from '@heroicons/react/24/solid'
-import { decrementItem, incrementItem, removeItem } from 'store/pizza-slice';
+import { decrementItem, incrementItem, removeItem } from '~store/pizza-slice';
 import { AddedPizza } from 'types';
 
 

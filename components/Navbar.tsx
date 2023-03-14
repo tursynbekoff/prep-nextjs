@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useSelector } from 'react-redux'
 import { ArrowLongLeftIcon, ChartPieIcon } from '@heroicons/react/24/solid'
 
-import { productsCountSelector } from 'store/pizza-slice'
+import { productsCountSelector } from '~store/pizza-slice'
 
 import Cart from './Cart'
 

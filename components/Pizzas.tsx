@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { pizzasSelector } from 'store/pizza-slice'
+import { pizzasSelector } from '~store/pizza-slice'
 
 import Card from './Card'
 
