@@ -7,7 +7,8 @@ export interface IPizza {
   types: string[],
   name: string,
   description: string,
-  price: number 
+  price: number,
+  categories: string[]
 }
 
 export interface AddedPizza {

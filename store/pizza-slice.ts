@@ -16,6 +16,18 @@ const slice = createSlice({
     onSave: (state, action: PayloadAction<IPizza[]>) => {
       state.list = action.payload 
     },
+    allPizzas: (state, action: PayloadAction<string>) => {
+      state.list
+    },
+    spicyPizzas: (state, action: PayloadAction<string>) => {
+      state.list = state.list.filter((p) => p.categories[0] === action.payload)
+    },
+    vegetarianPizzas: (state, action: PayloadAction<string>) => {
+
+    },
+    meatPizzas: (state, action: PayloadAction<string>) => {
+
+    },
     setProducts: (state, action: PayloadAction<AddedPizza>) => {
       state.products.push(action.payload);
     },
@@ -33,7 +45,7 @@ const slice = createSlice({
   }
 }) 
 
-export const { onSave, setProducts, incrementItem, decrementItem, removeItem } = slice.actions
+export const { onSave, setProducts, incrementItem, decrementItem, removeItem, allPizzas, spicyPizzas, vegetarianPizzas, meatPizzas } = slice.actions
 
 export default slice.reducer
 
