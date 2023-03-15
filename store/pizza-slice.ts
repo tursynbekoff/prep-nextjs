@@ -4,7 +4,7 @@ import { IPizza, AddedPizza, ProductId } from 'types'
 
 const initialState = {
   list: [] as IPizza[],
-  sortedList: [] as IPizza[],
+  filteredList: [] as IPizza[],
   products: [] as AddedPizza[],
   productCount: 0,
   totalPrice: 0,
@@ -16,10 +16,10 @@ const slice = createSlice({
   reducers: {
     onSave: (state, action: PayloadAction<IPizza[]>) => {
       state.list = action.payload
-      state.sortedList = action.payload
+      state.filteredList = action.payload
     },
     pizzasCategorySelector: (state, action: PayloadAction<string>) => {
-      state.sortedList = action.payload === 'all' ? state.list : state.list.filter((p) => p.categories.includes(action.payload))
+      state.filteredList = action.payload === 'all' ? state.list : state.list.filter((p) => p.categories.includes(action.payload))
     },
     setProducts: (state, action: PayloadAction<AddedPizza>) => {
       state.products.push(action.payload);
@@ -42,7 +42,7 @@ export const { onSave, setProducts, incrementItem, decrementItem, removeItem, pi
 
 export default slice.reducer
 
-export const pizzasSelector = (state: RootState) => state.pizza.sortedList
+export const pizzasSelector = (state: RootState) => state.pizza.filteredList
 export const addedProductsSelector = (state: RootState) => state.pizza.products
 export const productsCountSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.length)
 export const totalPriceSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.reduce((a, b) => a + b.price, 0))
