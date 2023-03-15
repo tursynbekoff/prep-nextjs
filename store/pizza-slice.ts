@@ -1,6 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "store";
-import { IPizza, AddedPizza, ProductId } from 'types'
+import { IPizza, AddedPizza, ProductId, Categories } from 'types'
 
 const initialState = {
   list: [] as IPizza[],
@@ -18,7 +18,7 @@ const slice = createSlice({
       state.list = action.payload
       state.filteredList = action.payload
     },
-    pizzasCategorySelector: (state, action: PayloadAction<string>) => {
+    pizzasCategorySelector: (state, action: PayloadAction<Categories>) => {
       state.filteredList = action.payload === 'all' ? state.list : state.list.filter((p) => p.categories.includes(action.payload))
     },
     setProducts: (state, action: PayloadAction<AddedPizza>) => {

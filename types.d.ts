@@ -38,3 +38,5 @@ export interface OnAddCalculate {
 }
 
 export type ProductId = string;
+
+export type Categories = string
