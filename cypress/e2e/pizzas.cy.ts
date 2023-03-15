@@ -1,3 +1,5 @@
+import Cypress from 'cypress';
+
 describe('Pizzas', () => {
   it('should render skeleton after list of pizzas successfuly', () => {
     // * arrange
