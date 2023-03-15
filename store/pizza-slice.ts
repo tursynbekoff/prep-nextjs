@@ -4,6 +4,7 @@ import { IPizza, AddedPizza, ProductId } from 'types'
 
 const initialState = {
   list: [] as IPizza[],
+  sortedList: [] as IPizza[],
   products: [] as AddedPizza[],
   productCount: 0,
   totalPrice: 0,
@@ -14,19 +15,11 @@ const slice = createSlice({
   initialState,
   reducers: {
     onSave: (state, action: PayloadAction<IPizza[]>) => {
-      state.list = action.payload 
+      state.list = action.payload
+      state.sortedList = action.payload
     },
-    allPizzas: (state, action: PayloadAction<string>) => {
-      state.list
-    },
-    spicyPizzas: (state, action: PayloadAction<string>) => {
-      state.list = state.list.filter((p) => p.categories[0] === action.payload)
-    },
-    vegetarianPizzas: (state, action: PayloadAction<string>) => {
-
-    },
-    meatPizzas: (state, action: PayloadAction<string>) => {
-
+    pizzasCategorySelector: (state, action: PayloadAction<string>) => {
+      state.sortedList = action.payload === 'all' ? state.list : state.list.filter((p) => p.categories.includes(action.payload))
     },
     setProducts: (state, action: PayloadAction<AddedPizza>) => {
       state.products.push(action.payload);
@@ -45,11 +38,11 @@ const slice = createSlice({
   }
 }) 
 
-export const { onSave, setProducts, incrementItem, decrementItem, removeItem, allPizzas, spicyPizzas, vegetarianPizzas, meatPizzas } = slice.actions
+export const { onSave, setProducts, incrementItem, decrementItem, removeItem, pizzasCategorySelector} = slice.actions
 
 export default slice.reducer
 
-export const pizzasSelector = (state: RootState) => state.pizza.list
+export const pizzasSelector = (state: RootState) => state.pizza.sortedList
 export const addedProductsSelector = (state: RootState) => state.pizza.products
 export const productsCountSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.length)
 export const totalPriceSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.reduce((a, b) => a + b.price, 0))
