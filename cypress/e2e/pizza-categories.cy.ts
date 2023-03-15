@@ -22,4 +22,11 @@ describe('Select pizza by categories', () => {
     cy.get('[role="spicy"]').click()
     cy.get('[role="pizza-card"]').should('have.length', expectedAmount)
   })
+  it('should in show all pizzas', () => {
+    cy.visit('/')
+    const expectedAmount = 13;
+
+    cy.get('[role="all"]').click()
+    cy.get('[role="pizza-card"]').should('have.length', expectedAmount)
+  })
 })
