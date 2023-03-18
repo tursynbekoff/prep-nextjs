@@ -1,10 +1,14 @@
 import { createSelector, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "store";
-import { IPizza, AddedPizza, ProductId } from 'types'
+import { IPizza, AddedPizza, ProductId, Category } from 'types'
 
 const initialState = {
   list: [] as IPizza[],
   products: [] as AddedPizza[],
+  selectedCategory: {
+    key: 'all',
+    title: 'All'
+  },
   productCount: 0,
   totalPrice: 0,
 }
@@ -14,7 +18,10 @@ const slice = createSlice({
   initialState,
   reducers: {
     onSave: (state, action: PayloadAction<IPizza[]>) => {
-      state.list = action.payload 
+      state.list = action.payload
+    },
+    onSelectCategorySelector: (state, action: PayloadAction<Category>) => {
+      state.selectedCategory = action.payload
     },
     setProducts: (state, action: PayloadAction<AddedPizza>) => {
       state.products.push(action.payload);
@@ -33,11 +40,28 @@ const slice = createSlice({
   }
 }) 
 
-export const { onSave, setProducts, incrementItem, decrementItem, removeItem } = slice.actions
+export const { 
+  onSave, 
+  setProducts, 
+  incrementItem, 
+  decrementItem, 
+  removeItem,
+  onSelectCategorySelector,
+} = slice.actions
 
 export default slice.reducer
-
+export const selectedCategorySelector = (state: RootState) => state.pizza.selectedCategory
 export const pizzasSelector = (state: RootState) => state.pizza.list
+export const filteredPizzaSelector = createSelector(
+  pizzasSelector,
+  selectedCategorySelector,
+  (pizzas, selectedCategory) => {
+    if (selectedCategory.key === 'all') {
+      return pizzas
+    }
+    return pizzas.filter((p) => p.categories.includes(selectedCategory.key)) 
+  }
+)
 export const addedProductsSelector = (state: RootState) => state.pizza.products
 export const productsCountSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.length)
 export const totalPriceSelector = createSelector(addedProductsSelector, (pizzas) => pizzas.reduce((a, b) => a + b.price, 0))

@@ -10,3 +10,22 @@ export const DOUGH_PRICES = {
   "classic": 0,
   "thin": 0.5
 }
+
+export const CATEGORIES_CONFIG = [
+  {
+    title: "All",
+    key: "all"
+  },
+  {
+    title: "Spicy",
+    key: "spicy"
+  },
+  {
+    title: "Meat",
+    key: "meat"
+  },
+  {
+    title: "Vegetarian",
+    key: "vegetarian"
+  },
+]

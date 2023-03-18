@@ -1,3 +1,5 @@
+import Cypress from 'cypress';
+
 describe('Select pizza and checkout page', () => {
   it('should in checkout page have total amount of different pizzas', () => {
     cy.visit('/')
