@@ -39,4 +39,11 @@ export interface OnAddCalculate {
 
 export type ProductId = string;
 
-export type Categories = string
+export const Categories = [
+  {title: 'All', key: 'all'}, 
+  {title: 'Spicy', key: 'spicy'},
+  {title: 'Meat', key: 'meat'}, 
+  {title: 'Vegetarian', key: 'vegetarian'}, 
+]
+
+export type Category = typeof Categories[number]

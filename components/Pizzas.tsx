@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 
-import { pizzasSelector } from '~store/pizza-slice'
+import { pizzasSelector, filteredPizzaSelector } from '~store/pizza-slice'
 
 import Card from './Card'
 import Categories from './Categories'
 
 const Pizzas = () => {
-  const pizzas = useSelector(pizzasSelector)
+  const pizzas = useSelector(filteredPizzaSelector)
 
   return (
     <>
